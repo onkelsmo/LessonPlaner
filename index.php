@@ -1,16 +1,31 @@
 <?php
+/**
+ * 
+ * LessonPlaner - index.php
+ * Der Einstiegspunkt
+ * 
+ * @author SmO
+ * @since 07.08.2013
+ *
+ */
 namespace lessonPlaner;
 
 include 'includes/config.php';
 
+// $_GET und $_POST zusammenfürgen
+$request = array_merge($_GET, $_POST);
 
-
-// Testing area
 try 
 {
-	$a = new Stunde('a', 'b', 'c');
+	// einen neuen Controller erzeugen
+	$controller = new Controller($request);
+
+	$controller->display();
 }
 catch (\Exception $e)
 {
 	echo $e->getMessage();
+	nl();
+	nl('<strong>Stack Trace:</strong>');
+	dump($e->getTraceAsString());
 }
