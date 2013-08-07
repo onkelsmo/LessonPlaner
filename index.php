@@ -20,7 +20,7 @@ try
 	// einen neuen Controller erzeugen
 	$controller = new Controller($request);
 
-	$controller->display();
+	echo $controller->display();
 }
 catch (\Exception $e)
 {

@@ -40,7 +40,7 @@ class View
 	 */
 	public function setTemplate($template = 'default')
 	{
-		$this->tempate = $template;
+		$this->template = $template;
 	}
 	
 	/**
@@ -57,7 +57,8 @@ class View
 		$tpl = $this->template;
 	
 		// Pfad zum Template erstellen und ueberpruefen, ob das Template existiert
-		$file = $this->path . DIRECTORY_SEPARATOR . $tpl . '.php';
+		$file = $this->path . DIRECTORY_SEPARATOR . $tpl . '.phtml';
+				
 		$exists = file_exists($file);
 	
 		if($exists)
@@ -69,7 +70,7 @@ class View
 			include $file;
 			$output = ob_get_contents();
 			ob_end_clean();
-	
+				
 			// Output zurückgeben
 			return $output;
 		}

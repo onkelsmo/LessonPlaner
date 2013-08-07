@@ -28,10 +28,11 @@ class Controller
 	// Methods
 	public function display()
 	{		
-		$this->view->setTemplate('theBlog');
-		$this->view->assign('blog_titel', 'Der Titel des Blogs');
-		$this->view->assign('blog_footer', 'Ein Blog von und mit MVC');
-		//$this->view->assign('blog_content', $innerView->loadTemplate());
+		$this->view->setTemplate('lessonPlaner');
+		$this->view->assign('title', 'Stundenplan Planer');
+		$this->view->assign('heading', 'Stundenplan Planer');
+		$this->view->assign('footer', 'Stundenplan Planer | &copy; by Jan Smolka | IT-11-c');
+		
 		return $this->view->loadTemplate();
 	}
 }
