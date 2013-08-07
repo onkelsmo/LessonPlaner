@@ -28,9 +28,19 @@ class Controller
 	// Methods
 	public function display()
 	{		
+		$innerView = new View();
+		
+		switch ($this->template)
+		{
+			case 'default':
+			default:
+				$innerView->setTemplate('default');
+		}
+		
 		$this->view->setTemplate('lessonPlaner');
 		$this->view->assign('title', 'Stundenplan Planer');
 		$this->view->assign('heading', 'Stundenplan Planer');
+		$this->view->assign('content', $innerView->loadTemplate());
 		$this->view->assign('footer', 'Stundenplan Planer | &copy; by Jan Smolka | IT-11-c');
 		
 		return $this->view->loadTemplate();
