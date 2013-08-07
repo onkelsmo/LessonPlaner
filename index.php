@@ -1,6 +1,16 @@
 <?php
 namespace lessonPlaner;
 
-$a = new Stunde('a', 'c', 'c');
+include 'includes/config.php';
 
-var_dump($a);
+
+
+// Testing area
+try 
+{
+	$a = new Stunde('a', 'b', 'c');
+}
+catch (\Exception $e)
+{
+	echo $e->getMessage();
+}

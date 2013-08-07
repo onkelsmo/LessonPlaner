@@ -9,3 +9,9 @@
  */
 namespace lessonPlaner;
 
+// includes
+include 'classes/freaky_functions.php';
+include 'classes/Stunde.php';
+
+// DB-connection
+
