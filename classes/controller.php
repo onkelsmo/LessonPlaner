@@ -32,6 +32,9 @@ class Controller
 		
 		switch ($this->template)
 		{
+			case 'new':
+				$innerView->setTemplate('new');
+				break;
 			case 'default':
 			default:
 				$innerView->setTemplate('default');
