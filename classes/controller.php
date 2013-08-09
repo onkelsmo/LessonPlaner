@@ -34,6 +34,11 @@ class Controller
 		{
 			case 'new':
 				$innerView->setTemplate('new');
+				$innerView->assign('headingBlock', 'Anlegen eines neuen Blocks');
+				$innerView->assign('inputFachLabel', 'Fach');
+				$innerView->assign('inputRaumLabel', 'Raum');
+				$innerView->assign('inputLehrerLabel', 'Lehrer');
+				$innerView->assign('headingBlock2Plan', 'Ordnen Sie einen Block dem Stundenplan zu.');
 				break;
 			case 'default':
 			default:

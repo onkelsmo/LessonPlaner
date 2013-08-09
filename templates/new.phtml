@@ -1,0 +1,25 @@
+<?php 
+/**
+ * new.phtml - Template fuer Neuerstellung
+ * 
+ * @author Smo
+ * @since 09.08.2013
+ */
+namespace lessonPlaner;
+?>
+<h2><?php echo $this->_['headingBlock']; ?></h2>
+<!-- TODO: save to DB -->
+<form class="newForm" action="#" method="post">
+	<label for="inputFach"><?php echo $this->_['inputFachLabel']; ?></label>
+	<input class="inputFach" type="text" name="inputFach" value="" />
+	<label for="inputRaum"><?php echo $this->_['inputRaumLabel']; ?></label>
+	<input class="inputRaum" type="text" name="inputRaum" value="" />
+	<label for="inputLehrer"><?php echo $this->_['inputLehrerLabel']; ?></label>
+	<input class="inputLehrer" type="text" name="inputLehrer" value="" />
+	
+	<input class="submit" type="submit" value="Speichern" />
+</form>
+<hr />
+<h2><?php echo $this->_['headingBlock2Plan']?></h2>
+<!-- TODO: Auslesen aller eingetragenen Blöcke aus der DB -->
+<a href="?view=default"><button class="back">Zur&uuml;ck</button></a>
