@@ -12,7 +12,7 @@ namespace lessonPlaner;
 
 include 'includes/config.php';
 
-// $_GET und $_POST zusammenfürgen
+// $_GET und $_POST zusammenfuegen
 $request = array_merge($_GET, $_POST);
 
 try 

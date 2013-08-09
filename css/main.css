@@ -4,3 +4,13 @@
 	margin:0px;
 	padding:0px;
 }
+.lessonTable
+{
+	text-align: center;
+}
+.lessonTable td
+{
+	border: 1px solid grey;
+	width: 100px;
+	height: 60px;
+}

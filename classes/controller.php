@@ -41,7 +41,7 @@ class Controller
 		$this->view->assign('title', 'Stundenplan Planer');
 		$this->view->assign('heading', 'Stundenplan Planer');
 		$this->view->assign('content', $innerView->loadTemplate());
-		$this->view->assign('footer', 'Stundenplan Planer | &copy; by Jan Smolka | IT-11-c');
+		$this->view->assign('footer', 'Stundenplan Planer | by Jan Smolka | IT-11-c');
 		
 		return $this->view->loadTemplate();
 	}
