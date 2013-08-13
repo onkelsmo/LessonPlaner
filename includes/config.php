@@ -16,28 +16,35 @@ include 'classes/view.php';
 include 'classes/Stunde.php';
 
 // DB-connection
-$doc = new DOMDocument();
-$doc->load('connection.xml');
-
-$nodes = $doc->getElementsByTagName('connection');
-foreach ($nodes as $node)
-{
-	$name = $node->getElementsByTagName('name');
-	$userName = $node->getElementsByTagName('username');
-	$password = $node->getElementsByTagName('password');
-}
-
-
-
-
-
-
-$dbServer = 'localhost';
+$dbServer = '';
 $dbUser = '';
 $dbPaswd = '';
 $dbName = '';
 
-//mysql_connect($dbServer, $dbUser, $dbPaswd) or die ("Keine Verbindung möglich!");
-//mysql_select_db($dbName) or die ("Die Datenbank existiert nicht!");
+// Parsen der connection.xml
+$doc = new \DOMDocument();
+$doc->load('includes/connection.xml');
+
+$nodes = $doc->getElementsByTagName('connection');
+
+foreach ($nodes as $node)
+{
+	$dbServer = $node->getElementsByTagName('server')->item(0)->nodeValue;
+	$dbName = $node->getElementsByTagName('name')->item(0)->nodeValue;
+	$dbUser = $node->getElementsByTagName('username')->item(0)->nodeValue;
+	$dbPaswd = $node->getElementsByTagName('password')->item(0)->nodeValue;
+}
+
+// Wenn alle Daten vorhanden sind, DB-Verbindung aufbauen
+if ($dbServer != '' && $dbName != '' && $dbUser != '')
+{
+	mysql_connect($dbServer, $dbUser, $dbPaswd) or die ("Keine Verbindung möglich!");
+	mysql_select_db($dbName) or die ("Die Datenbank existiert nicht!");
+}
+// Install-Script aufrufen
+else
+{
+	include 'install.php';
+}
 
 
