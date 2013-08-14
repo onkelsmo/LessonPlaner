@@ -27,29 +27,6 @@ namespace lessonPlaner;
 		<?php
 			if (isset($_POST['dbServer']) && isset($_POST['dbName']) && isset($_POST['dbUsername']) && isset($_POST['dbPassword']))
 			{
-				// Speichern der Eingaben in die connection.xml
-				$doc = new \DOMDocument();
-				$doc->load('includes/connection.xml');
-	
-				$nodes = $doc->getElementsByTagName('connection');
-
-				foreach ($nodes as $node)
-				{
-					$serverNode = $node->getElementsByTagName('server')->item(0);
-					$serverNode->nodeValue = $_POST['dbServer'];
-		
-					$nameNode = $node->getElementsByTagName('name')->item(0);
-					$nameNode->nodeValue = $_POST['dbName'];
-		
-					$userNode = $node->getElementsByTagName('username')->item(0);
-					$userNode->nodeValue = $_POST['dbUsername'];
-	
-					$paswdNode = $node->getElementsByTagName('password')->item(0);
-					$paswdNode->nodeValue = $_POST['dbPassword'];
-				}
-				$doc->save('includes/connection.xml');
-				echo "Verbindungsdaten eingetragen<br />";
-
 				// Herstellen der Datenbankverbindung und anlegen der Datenbank
 				$link = mysql_connect($_POST['dbServer'], $_POST['dbUsername'], $_POST['dbPassword']);
 				if (!$link)
@@ -103,6 +80,29 @@ namespace lessonPlaner;
 					}
 				}
 				mysql_close($link);
+				
+				// Speichern der Eingaben in die connection.xml
+				$doc = new \DOMDocument();
+				$doc->load('includes/connection.xml');
+				
+				$nodes = $doc->getElementsByTagName('connection');
+				
+				foreach ($nodes as $node)
+				{
+					$serverNode = $node->getElementsByTagName('server')->item(0);
+					$serverNode->nodeValue = $_POST['dbServer'];
+				
+					$nameNode = $node->getElementsByTagName('name')->item(0);
+					$nameNode->nodeValue = $_POST['dbName'];
+				
+					$userNode = $node->getElementsByTagName('username')->item(0);
+					$userNode->nodeValue = $_POST['dbUsername'];
+				
+					$paswdNode = $node->getElementsByTagName('password')->item(0);
+					$paswdNode->nodeValue = $_POST['dbPassword'];
+				}
+				$doc->save('includes/connection.xml');
+				echo "Verbindungsdaten eingetragen<br />";
 			}
 		?>
 	</div>
