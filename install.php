@@ -11,7 +11,7 @@ namespace lessonPlaner;
 <div id="overlay" style="display: none;">
 	<div class="content">		
 		<h1 class="heading">Install-Script</h1>
-		<p>Dieses Script legt die Datenbank und die benötigten Tabellen an.<br/>Bitte tragen Sie Ihre Datenbank Zugangsdaten in die unteren Felder ein.</p>
+		<p>Dieses Script legt die Datenbank und die ben&ouml;tigten Tabellen an.<br/>Bitte tragen Sie Ihre Datenbank Zugangsdaten in die unteren Felder ein.</p>
 		<form action="" method="post">
 			<label for="dbServer">Name des Servers</label>
 			<input type="text" name="dbServer" />
@@ -23,7 +23,7 @@ namespace lessonPlaner;
 			<input type="password" name="dbPassword" />
 			<input type="submit" value="Leg los!" />
 		</form>
-		<div class="closeoverlay" title="Overlay schließen">x</div>
+		<div class="closeoverlay" title="Overlay schlieï¿½en">x</div>
 		<?php
 			if (isset($_POST['dbServer']) && isset($_POST['dbName']) && isset($_POST['dbUsername']) && isset($_POST['dbPassword']))
 			{
@@ -54,17 +54,35 @@ namespace lessonPlaner;
 				$link = mysql_connect($_POST['dbServer'], $_POST['dbUsername'], $_POST['dbPassword']);
 				if (!$link)
 				{
-					die("Keine Verbindung möglich: " . mysql_error());
+					die("Keine Verbindung m&ouml;glich: " . mysql_error());
 				}
 				
 				$db_selected = mysql_select_db($_POST['dbName'], $link);
 				if (!$db_selected)
 				{
+					// Datenbank erstellen
 					$sql = "CREATE DATABASE {$_POST['dbName']}";
 					
 					if (mysql_query($sql, $link))
 					{
 						echo "Datenbank {$_POST['dbName']} erfolgreich erstellt!<br />";
+						
+						// Tabellen erstellen
+						$tableSql = "CREATE TABLE block(
+							id INT NOT NULL AUTO_INCREMENT,
+							PRIMARY KEY(id),
+							fach VARCHAR(30),
+							raum VARCHAR(10),
+							lehrer VARCHAR(30));
+							
+							CREATE TABLE plan(
+							id INT NOT NULL AUTO_INCREMENT,
+							PRIMARY KEY(id),
+							mo1 INT, mo2 INT, mo3 INT, mo4 INT,
+							di1 INT, di2 INT, di3 INT, di4 INT,
+							mi1 INT, mi2 INT, mi3 INT, mi4 INT,
+							do1 INT, do2 INT, do3 INT, do4 INT,
+							fr1 INT, fr2 INT, fr3 INT, fr4 INT)";
 					}
 					else 
 					{
