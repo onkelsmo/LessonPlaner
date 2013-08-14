@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <connection>
-    <server>localhost</server>
-    <name>lessonplanner</name>
-    <username>smo</username>
-    <password>smo</password>
+    <server></server>
+    <name></name>
+    <username></username>
+    <password></password>
 </connection>

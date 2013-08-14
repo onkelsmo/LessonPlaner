@@ -60,35 +60,47 @@ namespace lessonPlaner;
 				$db_selected = mysql_select_db($_POST['dbName'], $link);
 				if (!$db_selected)
 				{
-					// Datenbank erstellen
-					$sql = "CREATE DATABASE {$_POST['dbName']}";
+					// Datenbank und Tabellen erstellen
+					$sql = "CREATE DATABASE {$_POST['dbName']};";
 					
 					if (mysql_query($sql, $link))
 					{
 						echo "Datenbank {$_POST['dbName']} erfolgreich erstellt!<br />";
-						
-						// Tabellen erstellen
-						$tableSql = "CREATE TABLE block(
-							id INT NOT NULL AUTO_INCREMENT,
-							PRIMARY KEY(id),
-							fach VARCHAR(30),
-							raum VARCHAR(10),
-							lehrer VARCHAR(30));
-							
-							CREATE TABLE plan(
-							id INT NOT NULL AUTO_INCREMENT,
-							PRIMARY KEY(id),
-							mo1 INT, mo2 INT, mo3 INT, mo4 INT,
-							di1 INT, di2 INT, di3 INT, di4 INT,
-							mi1 INT, mi2 INT, mi3 INT, mi4 INT,
-							do1 INT, do2 INT, do3 INT, do4 INT,
-							fr1 INT, fr2 INT, fr3 INT, fr4 INT)";
 					}
 					else 
 					{
 						echo "Fehler beim Erstellen der Datenbank: " . mysql_error() . "<br />";
 					}
-					// TODO: Anlegen der Tabellen
+				}
+				
+				$db_selected = mysql_select_db($_POST['dbName'], $link);
+				if ($db_selected)
+				{
+					$blockTableSql = "CREATE TABLE block(
+							id INT NOT NULL AUTO_INCREMENT,
+							PRIMARY KEY (id),
+							fach VARCHAR (30),
+							raum VARCHAR (30),
+							lehrer VARCHAR (30));
+							";
+					$planTableSql = "CREATE TABLE plan(
+							id INT NOT NULL AUTO_INCREMENT,
+							PRIMARY KEY (id),
+							mo1 INT, mo2 INT, mo3 INT, mo4 INT,
+							di1 INT, di2 INT, di3 INT, di4 INT,
+							mi1 INT, mi2 INT, mi3 INT, mi4 INT,
+							do1 INT, do2 INT, do3 INT, do4 INT,
+							fr1 INT, fr2 INT, fr3 INT, fr4 INT);							
+							";
+					
+					if (mysql_query($blockTableSql, $link) && mysql_query($planTableSql, $link))
+					{
+						echo "Tabellen erfolgreich erstellt!<br />";
+					}
+					else
+					{
+						echo "Fehler beim Erstellen der Tabelle: " . mysql_error() . "<br />";
+					}
 				}
 				mysql_close($link);
 			}
