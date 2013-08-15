@@ -10,14 +10,14 @@ namespace lessonPlaner;
 if (isset($_POST['inputFach']) && isset($_POST['inputRaum']) && isset($_POST['inputLehrer']))
 {
 	// TODO: POST Daten prüfen!
-	Model::saveEntry($_POST['inputFach'], $_POST['inputRaum'], $_POST['inputLehrer']);
+	Model::saveBlockEntry($_POST['inputFach'], $_POST['inputRaum'], $_POST['inputLehrer']);
 	
 	echo "Fach wurde angelegt.";
 }
 ?>
 <h2><?php echo $this->_['headingBlock']; ?></h2>
 <!-- TODO: save to DB -->
-<form class="newForm" action="" method="post">
+<form class="form" action="" method="post">
 	<label for="inputFach"><?php echo $this->_['inputFachLabel']; ?></label>
 	<input class="inputFach" type="text" name="inputFach" value="" />
 	<label for="inputRaum"><?php echo $this->_['inputRaumLabel']; ?></label>
@@ -28,14 +28,20 @@ if (isset($_POST['inputFach']) && isset($_POST['inputRaum']) && isset($_POST['in
 	<input class="submit" type="submit" value="Speichern" />
 </form>
 <hr />
-<h2><?php echo $this->_['headingBlock2Plan']?></h2>
-<table>
-	<tr>
-		<td>
-		</td>
-	</tr>
-</table>
-
-
-
+<?php 
+$entries = Model::getBlockEntries();
+$this->assign('blockEntries', $entries);
+?>
+<h2><?php echo $this->_['headingBlock2Plan']; ?></h2>
+<p><?php echo $this->_['chooseABlock']; ?></p>
+<form class="form" action="" method="post">
+	<select class="select" name="blockSelection" size="<?php echo count($this->_['blockEntries']); ?>">
+		<?php 
+			foreach ($this->_['blockEntries'] as $entry)
+			{
+				echo "<option>" . $entry['fach'] . "</option>";
+			}
+		?>
+	</select>
+</form>
 <a href="?view=default"><button class="back">Zur&uuml;ck</button></a>

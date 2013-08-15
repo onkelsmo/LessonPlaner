@@ -20,10 +20,23 @@ class Model
 	 * @param string $raum
 	 * @param string $lehrer
 	 */
-	public static function saveEntry($fach, $raum, $lehrer)
+	public static function saveBlockEntry($fach, $raum, $lehrer)
 	{
 		$insertString = "INSERT INTO block (fach, raum, lehrer) VALUES ('" . $fach . "', '" . $raum . "', '" . $lehrer . "')";
 		$insertQuery = mysql_query($insertString);
 		
+	}
+	
+	public static function getBlockEntries()
+	{
+		$selectString = "SELECT * FROM block";
+		$selectQuery = mysql_query($selectString);
+		
+		while($row = mysql_fetch_assoc($selectQuery))
+		{
+			self::$entries[] = $row;
+		}
+		
+		return self::$entries;
 	}
 }
