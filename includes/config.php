@@ -13,7 +13,7 @@ namespace lessonPlaner;
 include 'classes/freaky_functions.php';
 include 'classes/controller.php';
 include 'classes/view.php';
-include 'classes/Stunde.php';
+include 'classes/model.php';
 
 // DB-connection
 $dbServer = '';

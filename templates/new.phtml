@@ -6,10 +6,18 @@
  * @since 09.08.2013
  */
 namespace lessonPlaner;
+
+if (isset($_POST['inputFach']) && isset($_POST['inputRaum']) && isset($_POST['inputLehrer']))
+{
+	// TODO: POST Daten prüfen!
+	Model::saveEntry($_POST['inputFach'], $_POST['inputRaum'], $_POST['inputLehrer']);
+	
+	echo "Fach wurde angelegt.";
+}
 ?>
 <h2><?php echo $this->_['headingBlock']; ?></h2>
 <!-- TODO: save to DB -->
-<form class="newForm" action="#" method="post">
+<form class="newForm" action="" method="post">
 	<label for="inputFach"><?php echo $this->_['inputFachLabel']; ?></label>
 	<input class="inputFach" type="text" name="inputFach" value="" />
 	<label for="inputRaum"><?php echo $this->_['inputRaumLabel']; ?></label>
@@ -21,5 +29,13 @@ namespace lessonPlaner;
 </form>
 <hr />
 <h2><?php echo $this->_['headingBlock2Plan']?></h2>
-<!-- TODO: Auslesen aller eingetragenen BlÃ¶cke aus der DB -->
+<table>
+	<tr>
+		<td>
+		</td>
+	</tr>
+</table>
+
+
+
 <a href="?view=default"><button class="back">Zur&uuml;ck</button></a>
