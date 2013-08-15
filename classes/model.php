@@ -24,9 +24,11 @@ class Model
 	{
 		$insertString = "INSERT INTO block (fach, raum, lehrer) VALUES ('" . $fach . "', '" . $raum . "', '" . $lehrer . "')";
 		$insertQuery = mysql_query($insertString);
-		
 	}
 	
+	/**
+	 * getBlockEntries - returns an array with all blocks
+	 */
 	public static function getBlockEntries()
 	{
 		$selectString = "SELECT * FROM block";
@@ -38,5 +40,25 @@ class Model
 		}
 		
 		return self::$entries;
+	}
+	
+	/**
+	 * getBlockEntryByFach - gibt ein array des gewaelten Blockeintrag zurück
+	 * 
+	 * @param string $fach
+	 */
+	public static function getBlockEntryByFach($fach)
+	{
+		$selectString = "SELECT * FROM block WHERE fach = '" . $fach . "'";
+		$selectQuery = mysql_query($selectString);
+		
+		return mysql_fetch_assoc($selectQuery);
+	}
+	
+	public static function savePlanEntry($block, $time)
+	{
+		// TODO: Update statt Insert?
+		$insertString = "INSERT INTO plan (" . $time . ") VALUES ('" . $block['id'] . "')";
+		$insertQuery = mysql_query($insertString);
 	}
 }

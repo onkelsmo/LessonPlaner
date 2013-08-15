@@ -12,7 +12,14 @@ if (isset($_POST['inputFach']) && isset($_POST['inputRaum']) && isset($_POST['in
 	// TODO: POST Daten prüfen!
 	Model::saveBlockEntry($_POST['inputFach'], $_POST['inputRaum'], $_POST['inputLehrer']);
 	
+	unset($_POST);
 	echo "Fach wurde angelegt.";
+}
+if (isset($_POST['blockSelection']) && isset($_POST['timeSelection']))
+{
+	$block = Model::getBlockEntryByFach($_POST['blockSelection']);
+		
+	Model::savePlanEntry($block, $_POST['timeSelection']);
 }
 ?>
 <h2><?php echo $this->_['headingBlock']; ?></h2>
@@ -43,5 +50,62 @@ $this->assign('blockEntries', $entries);
 			}
 		?>
 	</select>
+	<select class="select" name="timeSelection" size="<?php echo count($this->_['blockEntries']); ?>">
+		<optgroup label="Montag">
+			<option value="mo1">1.Block</option>
+			<option value="mo2">2.Block</option>
+			<option value="mo3">3.Block</option>
+			<option value="mo4">4.Block</option>
+		</optgroup>
+		<optgroup label="Dienstag">
+			<option value="di1">1.Block</option>
+			<option value="di2">2.Block</option>
+			<option value="di3">3.Block</option>
+			<option value="di4">4.Block</option>
+		</optgroup>
+		<optgroup label="Mittwoch">
+			<option value="mi1">1.Block</option>
+			<option value="mi2">2.Block</option>
+			<option value="mi3">3.Block</option>
+			<option value="mi4">4.Block</option>
+		</optgroup>
+		<optgroup label="Donnerstag">
+			<option value="do1">1.Block</option>
+			<option value="do2">2.Block</option>
+			<option value="do3">3.Block</option>
+			<option value="do4">4.Block</option>
+		</optgroup>
+		<optgroup label="Freitag">
+			<option value="fr1">1.Block</option>
+			<option value="fr2">2.Block</option>
+			<option value="fr3">3.Block</option>
+			<option value="fr4">4.Block</option>
+		</optgroup>
+	</select>
+	<input class="submit" type="submit" value="Speichern" />
 </form>
 <a href="?view=default"><button class="back">Zur&uuml;ck</button></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
