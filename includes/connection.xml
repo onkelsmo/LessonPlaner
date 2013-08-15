@@ -2,6 +2,6 @@
 <connection>
     <server>localhost</server>
     <name>lessonplaner</name>
-    <username>smo</username>
-    <password>smo</password>
+    <username>root</username>
+    <password></password>
 </connection>

@@ -102,7 +102,7 @@ namespace lessonPlaner;
 					$paswdNode->nodeValue = $_POST['dbPassword'];
 				}
 				$doc->save('includes/connection.xml');
-				echo "Verbindungsdaten eingetragen<br />";
+				echo "Verbindungsdaten eingetragen<br /><button onclick=\"document.location.href='http://localhost/LessonPlaner/';\">Danke!</button>";
 			}
 		?>
 	</div>
