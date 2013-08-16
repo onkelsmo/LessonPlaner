@@ -22,8 +22,8 @@ class Model
 	 */
 	public static function saveBlockEntry($fach, $raum, $lehrer)
 	{
-		$insertString = "INSERT INTO block (fach, raum, lehrer) VALUES ('" . $fach . "', '" . $raum . "', '" . $lehrer . "')";
-		$insertQuery = mysql_query($insertString);
+		$insertQuery = "INSERT INTO block (fach, raum, lehrer) VALUES ('" . $fach . "', '" . $raum . "', '" . $lehrer . "')";
+		$insertResult = mysql_query($insertQuery);
 	}
 	
 	/**
@@ -31,10 +31,10 @@ class Model
 	 */
 	public static function getBlockEntries()
 	{
-		$selectString = "SELECT * FROM block";
-		$selectQuery = mysql_query($selectString);
+		$selectQuery = "SELECT * FROM block";
+		$selectResult = mysql_query($selectQuery);
 		
-		while($row = mysql_fetch_assoc($selectQuery))
+		while($row = mysql_fetch_assoc($selectResult))
 		{
 			self::$entries[] = $row;
 		}
@@ -49,16 +49,34 @@ class Model
 	 */
 	public static function getBlockEntryByFach($fach)
 	{
-		$selectString = "SELECT * FROM block WHERE fach = '" . $fach . "'";
-		$selectQuery = mysql_query($selectString);
+		$selectQuery = "SELECT * FROM block WHERE fach = '" . $fach . "'";
+		$selectResult = mysql_query($selectQuery);
 		
-		return mysql_fetch_assoc($selectQuery);
+		return mysql_fetch_assoc($selectResult);
 	}
 	
+	/**
+	 * savePlanEntry - speichert die Zuordnung Block -> Plan in der Datenbank 
+	 * 
+	 * @param unknown_type $block
+	 * @param unknown_type $time
+	 */
 	public static function savePlanEntry($block, $time)
 	{
-		// TODO: Update statt Insert?
-		$insertString = "INSERT INTO plan (" . $time . ") VALUES ('" . $block['id'] . "')";
-		$insertQuery = mysql_query($insertString);
+		$selectQuery = "SELECT id from plan";
+		$selectResult = mysql_query($selectQuery);
+
+		$rowArray = mysql_fetch_array($selectResult);
+		
+		if (!$rowArray)
+		{
+			$insertString = "INSERT INTO plan (" . $time . ") VALUES ('" . $block['id'] . "')";
+			$insertQuery = mysql_query($insertString);
+		}
+		else 
+		{
+			$updateQuery = "UPDATE plan SET " . $time . " = '" . $block['id'] . "' WHERE id = '" . $rowArray['id'] . "'";
+			$updateResult = mysql_query($updateQuery);			
+		}
 	}
 }

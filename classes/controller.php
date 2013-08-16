@@ -40,8 +40,11 @@ class Controller
 				$innerView->assign('inputLehrerLabel', 'Lehrer');
 				$innerView->assign('headingBlock2Plan', 'Ordnen Sie einen Block dem Stundenplan zu.');
 				$innerView->assign('chooseABlock', 'W&auml;hlen Sie einen Block und wann dieser stattfindet.');
-				//$entries = Model::getBlockEntries();
-				//$innerView->assign('blockEntries', $entries);
+				$innerView->assign('blockCreated', 'Block wurde angelegt.');
+				$innerView->assign('block1', '1.Block');
+				$innerView->assign('block2', '2.Block');
+				$innerView->assign('block3', '3.Block');
+				$innerView->assign('block4', '4.Block');
 				break;
 			case 'default':
 			default:
