@@ -17,7 +17,7 @@ if (isset($_POST['inputFach']) && isset($_POST['inputRaum']) && isset($_POST['in
 }
 if (isset($_POST['blockSelection']) && isset($_POST['timeSelection']))
 {
-	$block = Model::getBlockEntryByFach($_POST['blockSelection']);
+	$block = Model::getBlockEntryByTag($_POST['blockSelection']);
 		
 	Model::savePlanEntry($block, $_POST['timeSelection']);
 	unset($_POST);

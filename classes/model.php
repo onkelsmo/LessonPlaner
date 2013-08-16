@@ -11,7 +11,8 @@ namespace lessonPlaner;
 class Model
 {
 	// Enthält alle gewünschten Einträge
-	private static $entries = array();
+	private static $blockEntries = array();
+	private static $planEntries = array();
 	
 	/**
 	 * saveEntry - Speichert die Einträge in der Datenbank
@@ -36,20 +37,49 @@ class Model
 		
 		while($row = mysql_fetch_assoc($selectResult))
 		{
-			self::$entries[] = $row;
+			self::$blockEntries[] = $row;
 		}
 		
-		return self::$entries;
+		return self::$blockEntries;
 	}
 	
 	/**
-	 * getBlockEntryByFach - gibt ein array des gewaelten Blockeintrag zurück
-	 * 
-	 * @param string $fach
+	 * getPlanEntries - returns an array with all plan entries
 	 */
-	public static function getBlockEntryByFach($fach)
+	public static function getPlanEntries()
 	{
-		$selectQuery = "SELECT * FROM block WHERE fach = '" . $fach . "'";
+		$selectQuery = "SELECT * FROM plan";
+		$selectResult = mysql_query($selectQuery);
+	
+		while($row = mysql_fetch_assoc($selectResult))
+		{
+			self::$planEntries[] = $row;
+		}
+	
+		return self::$planEntries;
+	}
+		
+	/**
+	 * getPlanEntryByTag - gibt ein array des gewaelten Planeintrags zurück ausgewaehlt nach einem gegebenen tag
+	 *
+	 * @param string $tag - irgendein Datenbank-Spaltenname
+	 */
+	public static function getPlanEntryByTag($tag)
+	{
+		$selectQuery = "SELECT * FROM plan WHERE " . $tag . " = '" . $tag . "' AND '" . $tag . "' IS NOT NULL";
+		$selectResult = mysql_query($selectQuery);
+	
+		return mysql_fetch_assoc($selectResult);
+	}
+	
+	/**
+	 * getBlockEntryByTag - gibt ein array des gewaelten Blockeintrag zurück ausgewaehlt nach einem gegebenen tag
+	 * 
+	 * @param string $tag - irgendein Datenbank-Spaltenname
+	 */
+	public static function getBlockEntryByTag($tag)
+	{
+		$selectQuery = "SELECT * FROM block WHERE " . $tag . " = '" . $tag . "'";
 		$selectResult = mysql_query($selectQuery);
 		
 		return mysql_fetch_assoc($selectResult);

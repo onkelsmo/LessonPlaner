@@ -49,6 +49,17 @@ class Controller
 			case 'default':
 			default:
 				$innerView->setTemplate('default');
+				$innerView->assign('monday', 'Montag');
+				$innerView->assign('tuesday', 'Dienstag');
+				$innerView->assign('wednesday', 'Mittwoch');
+				$innerView->assign('thursday', 'Donnerstag');
+				$innerView->assign('friday', 'Freitag');
+				$innerView->assign('block1', '1.Block');
+				$innerView->assign('block2', '2.Block');
+				$innerView->assign('block3', '3.Block');
+				$innerView->assign('block4', '4.Block');
+				$planEntries = Model::getPlanEntries();
+				$innerView->assign('planEntries', $planEntries);
 		}
 		
 		$this->view->setTemplate('lessonPlaner');
