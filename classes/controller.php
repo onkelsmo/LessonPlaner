@@ -34,6 +34,8 @@ class Controller
 		{
 			case 'new':
 				$innerView->setTemplate('new');
+				$innerView->assign('headingClear', 'Aktuellen Plan l&ouml;schen?');
+				$innerView->assign('planCleared', 'Plan wurde gel&ouml;scht!');
 				$innerView->assign('headingBlock', 'Anlegen eines neuen Blocks');
 				$innerView->assign('inputFachLabel', 'Fach');
 				$innerView->assign('inputRaumLabel', 'Raum');

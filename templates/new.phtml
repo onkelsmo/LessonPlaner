@@ -25,9 +25,15 @@ if (isset($_POST['blockSelection']) && isset($_POST['timeSelection']))
 	// TODO: enum für Wochentag<->Block
 	echo "Fach: {$block['fach']}<br />Raum: {$block['raum']}<br />Lehrer: {$block['lehrer']}<br />";
 }
+if (isset($_POST['clear']))
+{
+	if(Model::clearPlan())
+	{
+		echo $this->_['planCleared'];
+	}
+}
 ?>
 <h2><?php echo $this->_['headingBlock']; ?></h2>
-<!-- TODO: save to DB -->
 <form class="form" action="" method="post">
 	<label for="inputFach"><?php echo $this->_['inputFachLabel']; ?></label>
 	<input class="inputFach" type="text" name="inputFach" value="" />
@@ -88,7 +94,13 @@ $this->assign('blockEntries', $entries);
 	</select>
 	<input class="submit" type="submit" value="Speichern" />
 </form>
-
+<!-- Clear planer -->
+<hr>
+<h2><?php echo $this->_['headingClear']; ?></h2>
+<form class="form" action="" method="post">
+	<input class="submit" type="submit" value="Ja!" name="clear" />
+</form>
+<hr>
 <a href="?view=default"><button class="back">Zur&uuml;ck</button></a>
 
 

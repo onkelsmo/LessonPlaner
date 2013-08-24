@@ -130,4 +130,12 @@ class Model
 			$updateResult = mysql_query($updateQuery);			
 		}
 	}
+	
+	public static function clearPlan()
+	{
+		$truncateQuery = "TRUNCATE `block`";
+		$truncateResult = mysql_query($truncateQuery);
+		
+		return true;
+	}
 }
