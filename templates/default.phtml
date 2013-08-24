@@ -6,9 +6,6 @@
  * @since 07.08.2013
  */
 namespace lessonPlaner;
-
-
-dump($this->_['planEntries']);
 ?>
 <span class="default">
 	<table class="lessonTable">
@@ -22,35 +19,35 @@ dump($this->_['planEntries']);
 		</tr>
 		<tr class="firstBlock">
 			<td><?php echo $this->_['block1']; ?></td>
-			<td><?php dump(Model::getPlanEntryByTag($this->_['planEntries']['0']['mo1'])); ?></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mo1']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['di1']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mi1']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['do1']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['fr1']); ?></td>
 		</tr>
 		<tr class="secondBlock">
 			<td><?php echo $this->_['block2']; ?></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mo2']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['di2']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mi2']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['do2']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['fr2']); ?></td>
 		</tr>
 		<tr class="thirdBlock">
 			<td><?php echo $this->_['block3']; ?></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mo3']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['di3']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mi3']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['do3']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['fr3']); ?></td>
 		</tr>
 		<tr class="fouthBlock">
 			<td><?php echo $this->_['block4']; ?></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mo4']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['di4']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['mi4']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['do4']); ?></td>
+			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['fr4']); ?></td>
 		</tr>
 	</table>
 	<a href="?view=new"><button class="newPlan">Neu</button></a>

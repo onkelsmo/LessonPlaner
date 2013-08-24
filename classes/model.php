@@ -44,6 +44,35 @@ class Model
 	}
 	
 	/**
+	 * getBlockEntryByTag - gibt ein array des gewaelten Blockeintrag zurück ausgewaehlt nach einem gegebenen tag
+	 *
+	 * @param string $tag - irgendein Datenbank-Spaltenname
+	 */
+	public static function getBlockEntryByTag($tag)
+	{
+		$selectQuery = "SELECT * FROM block WHERE " . $tag . " = '" . $tag . "'";
+		$selectResult = mysql_query($selectQuery);
+	
+		return mysql_fetch_assoc($selectResult);
+	}
+	
+	/**
+	 * getBlockEntryById - gibt eine formatierte Version des Blockeintrags aus
+	 * 
+	 * @param int $id
+	 */
+	public static function getBlockEntryById($id)
+	{
+		$selectQuery = "SELECT * FROM block WHERE id = '" . $id . "'";
+		$selectResult = mysql_query($selectQuery);
+		
+		$resultArray = mysql_fetch_assoc($selectResult);
+		$returnString = "{$resultArray['fach']}<br />{$resultArray['raum']}<br />{$resultArray['lehrer']}";
+		
+		return $returnString;
+	}
+	
+	/**
 	 * getPlanEntries - returns an array with all plan entries
 	 */
 	public static function getPlanEntries()
@@ -60,29 +89,21 @@ class Model
 	}
 		
 	/**
-	 * getPlanEntryByTag - gibt ein array des gewaelten Planeintrags zurück ausgewaehlt nach einem gegebenen tag
+	 * getPlanEntryByTag - gibt ein array des gewaehlten Planeintrags zurück ausgewaehlt nach einem gegebenen tag
 	 *
 	 * @param string $tag - irgendein Datenbank-Spaltenname
 	 */
-	public static function getPlanEntryByTag($tag)
+	public static function getPlanEntryByTag($tag = '*')
 	{
-		$selectQuery = "SELECT * FROM plan WHERE " . $tag . " = '" . $tag . "' AND '" . $tag . "' IS NOT NULL";
+		$selectQuery = "SELECT `" . $tag . "` FROM `plan`";
 		$selectResult = mysql_query($selectQuery);
-	
-		return mysql_fetch_assoc($selectResult);
-	}
-	
-	/**
-	 * getBlockEntryByTag - gibt ein array des gewaelten Blockeintrag zurück ausgewaehlt nach einem gegebenen tag
-	 * 
-	 * @param string $tag - irgendein Datenbank-Spaltenname
-	 */
-	public static function getBlockEntryByTag($tag)
-	{
-		$selectQuery = "SELECT * FROM block WHERE " . $tag . " = '" . $tag . "'";
-		$selectResult = mysql_query($selectQuery);
+
+		$planEntryId =  mysql_fetch_array($selectResult);
 		
-		return mysql_fetch_assoc($selectResult);
+		$blockSelectQuery = "SELECT * FROM block WHERE id = '" . $planEntryId[0] . "'";
+		$blockSelectResult = mysql_query($blockSelectQuery);
+		
+		return mysql_fetch_assoc($blockSelectResult);
 	}
 	
 	/**
