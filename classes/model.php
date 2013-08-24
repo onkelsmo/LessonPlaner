@@ -67,8 +67,15 @@ class Model
 		$selectResult = mysql_query($selectQuery);
 		
 		$resultArray = mysql_fetch_assoc($selectResult);
-		$returnString = "{$resultArray['fach']}<br />{$resultArray['raum']}<br />{$resultArray['lehrer']}";
 		
+		if (!$resultArray)
+		{
+			$returnString = '';
+		}
+		else 
+		{
+			$returnString = "{$resultArray['fach']}<br />{$resultArray['raum']}<br />{$resultArray['lehrer']}";
+		}
 		return $returnString;
 	}
 	
@@ -79,12 +86,17 @@ class Model
 	{
 		$selectQuery = "SELECT * FROM plan";
 		$selectResult = mysql_query($selectQuery);
-	
-		while($row = mysql_fetch_assoc($selectResult))
+
+		$row = mysql_fetch_assoc($selectResult);
+		
+		if(!$row)
+		{
+			self::$planEntries[] = null;
+		}
+		else
 		{
 			self::$planEntries[] = $row;
-		}
-	
+		}	
 		return self::$planEntries;
 	}
 		
@@ -131,9 +143,12 @@ class Model
 		}
 	}
 	
+	/**
+	 * clearPlan - leert die plan Tabelle
+	 */
 	public static function clearPlan()
 	{
-		$truncateQuery = "TRUNCATE `block`";
+		$truncateQuery = "TRUNCATE `plan`";
 		$truncateResult = mysql_query($truncateQuery);
 		
 		return true;
