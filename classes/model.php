@@ -50,7 +50,7 @@ class Model
 	 */
 	public static function getBlockEntryByTag($tag)
 	{
-		$selectQuery = "SELECT * FROM block WHERE " . $tag . " = '" . $tag . "'";
+		$selectQuery = "SELECT * FROM block WHERE fach = '" . $tag . "'";
 		$selectResult = mysql_query($selectQuery);
 	
 		return mysql_fetch_assoc($selectResult);
