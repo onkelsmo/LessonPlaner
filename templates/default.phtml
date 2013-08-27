@@ -7,7 +7,7 @@
  */
 namespace lessonPlaner;
 ?>
-<span class="default">
+<div class="default">
 	<table class="lessonTable">
 		<tr class="tableHeading">
 			<td></td>
@@ -50,9 +50,11 @@ namespace lessonPlaner;
 			<td><?php echo Model::getBlockEntryById($this->_['planEntries']['0']['fr4']); ?></td>
 		</tr>
 	</table>
-	<a href="?view=new"><button class="newPlan">Neu</button></a>
-	<a href="?view=edit"><button class="editPlan">Bearbeiten</button></a>
-	<a href="?view=print"><button class="printPlan">Drucken</button></a>
-	<a href="?view=send"><button class="sendPlan">Per E-Mail senden</button></a>
-	<a href="?view=share"><button class="sharePlane">Auf Facebook teilen</button></a>
-</span>
+	<span class="linkSet">
+		<a href="?view=new"><button class="newPlan">Neu</button></a>
+		<a href="?view=edit"><button class="editPlan">Bearbeiten</button></a>
+		<a href="?view=print"><button class="printPlan">Drucken</button></a>
+		<a href="?view=send"><button class="sendPlan">Per E-Mail senden</button></a>
+		<a href="?view=share"><button class="sharePlane">Auf Facebook teilen</button></a>
+	</span>
+</div>
