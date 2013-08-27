@@ -14,6 +14,9 @@
  */
 namespace lessonPlaner;
 
+// Set to E_ALL while debugging
+error_reporting(0);
+
 include 'includes/config.php';
 
 // $_GET und $_POST zusammenfuegen

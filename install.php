@@ -10,18 +10,26 @@ namespace lessonPlaner;
 <div id="overlaybg" style="display: none;"></div>
 <div id="overlay" style="display: none;">
 	<div class="content">		
-		<h1 class="heading">Install-Script</h1>
+		<h1 class="heading"><span class="installHeading">Install-Script</span></h1>
 		<p>Dieses Script legt die Datenbank und die ben&ouml;tigten Tabellen an.<br/>Bitte tragen Sie Ihre Datenbank Zugangsdaten in die unteren Felder ein.</p>
-		<form action="" method="post">
+		<form class="form installForm" action="" method="post">
 			<label for="dbServer">Name des Servers</label>
-			<input type="text" name="dbServer" />
+			<br />
+			<input class="installInput" type="text" name="dbServer" />
+			<br />
 			<label for="dbName">Name der Datenbank</label>
-			<input type="text" name="dbName" />
+			<br />
+			<input class="installInput" type="text" name="dbName" />
+			<br />
 			<label for="dbUsername">Benutzername</label>
-			<input type="text" name="dbUsername" />
+			<br />
+			<input class="installInput" type="text" name="dbUsername" />
+			<br />
 			<label for="dbPassword">Passwort</label>
-			<input type="password" name="dbPassword" />
-			<input type="submit" value="Leg los!" />
+			<br />
+			<input class="installInput" type="password" name="dbPassword" />
+			<br />
+			<input class="submit" type="submit" value="Leg los!" />
 		</form>
 		<div class="closeoverlay" title="Overlay schlie�en">x</div>
 		<?php

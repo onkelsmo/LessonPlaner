@@ -20,6 +20,27 @@ body
 	margin-left: 5%;
 	margin-right: 5%;
 }
+/* Overlay */
+.content
+{
+	height: 500px;
+}
+.installForm
+{
+	position: relative;
+	left: 60px;
+}
+.installHeading
+{
+	border: none;
+	background: none;
+	position: relative;
+	top: 30px;
+}
+.installInput
+{
+	float: left;
+}
 /* Header */
 .heading
 {
