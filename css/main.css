@@ -3,10 +3,26 @@
 {
 	margin:0px;
 	padding:0px;
+	font-family: Arial, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+.heading
+{
+	font-family: Comic Sans,Comic Sans MS,cursive;
+	font-size: 50px;
+	height: 80px;
+}
+.default
+{
+	
 }
 .lessonTable
 {
 	text-align: center;
+	margin-top: 40px;
+	margin-left: 25%;
+	margin-bottom: 40px;
+	margin-right: 25%;
 }
 .lessonTable td
 {
