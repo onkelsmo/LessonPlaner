@@ -52,7 +52,6 @@ $entries = Model::getBlockEntries();
 $this->assign('blockEntries', $entries);
 ?>
 <h2><?php echo $this->_['headingBlock2Plan']; ?></h2>
-<p><?php echo $this->_['chooseABlock']; ?></p>
 <form class="form" action="" method="post">
 	<select class="select" name="blockSelection" size="<?php echo count($this->_['blockEntries']); ?>">
 		<?php 
@@ -97,11 +96,11 @@ $this->assign('blockEntries', $entries);
 	<input class="submit" type="submit" value="Speichern" />
 </form>
 <!-- Clear planer -->
-<h2><?php echo $this->_['headingClear']; ?></h2>
+<h2 class="headingClear"><?php echo $this->_['headingClear']; ?></h2>
 <form class="form" action="" method="post">
-	<input class="submit" type="submit" value="Ja!" name="clear" />
+	<input class="submit clear" type="submit" value="L&ouml;schen" name="clear" />
 </form>
-<a href="?view=default"><button class="back">Zur&uuml;ck</button></a>
+<a class="back" href="?view=default"><button>Zur&uuml;ck</button></a>
 
 
 

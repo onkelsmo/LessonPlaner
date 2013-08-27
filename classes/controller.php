@@ -40,8 +40,7 @@ class Controller
 				$innerView->assign('inputFachLabel', 'Fach');
 				$innerView->assign('inputRaumLabel', 'Raum');
 				$innerView->assign('inputLehrerLabel', 'Lehrer');
-				$innerView->assign('headingBlock2Plan', '2. Ordnen Sie einen Block dem Stundenplan zu.');
-				$innerView->assign('chooseABlock', 'W&auml;hlen Sie einen Block und wann dieser stattfindet.');
+				$innerView->assign('headingBlock2Plan', '2. Ordne einen Block dem Stundenplan zu.');
 				$innerView->assign('blockCreated', 'Block wurde angelegt.');
 				$innerView->assign('block1', '1.Block');
 				$innerView->assign('block2', '2.Block');

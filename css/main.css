@@ -110,17 +110,68 @@ input:hover
 {
 	background-color: #525252;
 }
-input:active
+input:focus
 {
 	background-color: #525252;
+}
+.select
+{
+	
+	width: 150px;
+	float: left;
+}
+optgroup
+{
+	border: none;
+	border-bottom: 1px solid
+}
+option
+{
+	border: none;
+}
+option:hover
+{
+	background-color: #525252;
+}
+option:selected
+{
+	background-color: #525252;
+}
+option:active
+{
+	background-color: #525252;
+}
+.headingClear
+{
+	position: relative;
+	top: 50px;
 }
 .submit
 {
+	position: relative;
+	top: 10px;
 	cursor: pointer;
+	background-color: #EEEEEE;
+	color: #444444;
+	text-shadow: none;
 }
 .submit:hover
 {
-	background-color: #525252;
+	background-color: #CCCCCC;
+}
+.clear
+{
+	position: relative;
+	top: 50px;
+}
+.back
+{
+	border: none;
+	background: none;
+	position: relative;
+	top: 41px;
+	left: 98px;
+	
 }
 /* Footer */
 .footer
