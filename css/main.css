@@ -40,6 +40,15 @@ body
 	padding-top: 40px;
 	height: 600px;
 }
+button
+{
+	cursor: pointer;
+}
+button:hover
+{
+	background-color: #525252;
+}
+/* Landingpage */
 .lessonTable
 {
 	position: relative;
@@ -61,6 +70,57 @@ body
 {
 	position: relative;
 	top: 80px;	
+	background: none;
+	border: none;
+}
+/* new template */
+h2
+{
+	clear: both;
+	background: none;
+	border: none;
+}
+p
+{
+	background: none;
+	border: none;
+}
+.form
+{
+	background: none;
+	border: none;
+	width: 300px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	text-align: left;
+}
+label
+{
+	background: none;
+	border: none;
+}
+input
+{
+	float: right;
+	text-align: right;
+}
+input:hover
+{
+	background-color: #525252;
+}
+input:active
+{
+	background-color: #525252;
+}
+.submit
+{
+	cursor: pointer;
+}
+.submit:hover
+{
+	background-color: #525252;
 }
 /* Footer */
 .footer

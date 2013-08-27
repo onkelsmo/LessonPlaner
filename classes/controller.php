@@ -36,11 +36,11 @@ class Controller
 				$innerView->setTemplate('new');
 				$innerView->assign('headingClear', 'Aktuellen Plan l&ouml;schen?');
 				$innerView->assign('planCleared', 'Plan wurde gel&ouml;scht!');
-				$innerView->assign('headingBlock', 'Anlegen eines neuen Blocks');
+				$innerView->assign('headingBlock', '1. Anlegen eines neuen Blocks');
 				$innerView->assign('inputFachLabel', 'Fach');
 				$innerView->assign('inputRaumLabel', 'Raum');
 				$innerView->assign('inputLehrerLabel', 'Lehrer');
-				$innerView->assign('headingBlock2Plan', 'Ordnen Sie einen Block dem Stundenplan zu.');
+				$innerView->assign('headingBlock2Plan', '2. Ordnen Sie einen Block dem Stundenplan zu.');
 				$innerView->assign('chooseABlock', 'W&auml;hlen Sie einen Block und wann dieser stattfindet.');
 				$innerView->assign('blockCreated', 'Block wurde angelegt.');
 				$innerView->assign('block1', '1.Block');

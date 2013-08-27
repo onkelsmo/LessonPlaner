@@ -37,14 +37,16 @@ if (isset($_POST['clear']))
 <form class="form" action="" method="post">
 	<label for="inputFach"><?php echo $this->_['inputFachLabel']; ?></label>
 	<input class="inputFach" type="text" name="inputFach" value="" />
+	<br />
 	<label for="inputRaum"><?php echo $this->_['inputRaumLabel']; ?></label>
 	<input class="inputRaum" type="text" name="inputRaum" value="" />
+	<br />
 	<label for="inputLehrer"><?php echo $this->_['inputLehrerLabel']; ?></label>
 	<input class="inputLehrer" type="text" name="inputLehrer" value="" />
-	
+	<br />
 	<input class="submit" type="submit" value="Speichern" />
+	<br />
 </form>
-<hr />
 <?php 
 $entries = Model::getBlockEntries();
 $this->assign('blockEntries', $entries);
@@ -95,12 +97,10 @@ $this->assign('blockEntries', $entries);
 	<input class="submit" type="submit" value="Speichern" />
 </form>
 <!-- Clear planer -->
-<hr>
 <h2><?php echo $this->_['headingClear']; ?></h2>
 <form class="form" action="" method="post">
 	<input class="submit" type="submit" value="Ja!" name="clear" />
 </form>
-<hr>
 <a href="?view=default"><button class="back">Zur&uuml;ck</button></a>
 
 
