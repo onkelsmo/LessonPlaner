@@ -15,7 +15,7 @@ class Model
 	private static $planEntries = array();
 	
 	/**
-	 * saveEntry - Speichert die Einträge in der Datenbank
+	 * saveBlockEntry - inserts a block entry to the database
 	 * 
 	 * @param string $fach
 	 * @param string $raum

@@ -2,7 +2,7 @@
 /**
 *
 * LessonPlaner - view.php
-*
+* 
 * @author SmO
 * @since 07.08.2013
 *
@@ -48,7 +48,6 @@ class View
 	 * Das Template-File laden und zurueckgeben
 	 *
 	 * @param string $tpl Der Name des Template-Files (falls es nicht vorher über steTemplate() zugewiesen wurde).
-	 *
 	 * @return string Der Output des Templates.
 	 *
 	 */

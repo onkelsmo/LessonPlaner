@@ -26,6 +26,9 @@ class Controller
 	}
 	
 	// Methods
+	/**
+	 * display - loads the outer template, the specific inner tempaltes and assign variables to the views
+	 */
 	public function display()
 	{		
 		$innerView = new View();
