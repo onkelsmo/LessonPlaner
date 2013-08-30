@@ -189,14 +189,30 @@ option:active
 {
 	position: relative;
 	top: 50px;
+	background-color: #444444;
+	color: #EEEEEE;
+	text-shadow: none;
+}
+.clear:hover
+{
+	background-color: #525252;
 }
 .backLink
 {
 	border: none;
-	background: none;
 	position: relative;
 	top: 41px;
 	left: 98px;
+}
+.back
+{
+	background-color: #EEEEEE;
+	color: #444444;
+	text-shadow: none;
+}
+.back:hover
+{
+	background-color: #CCCCCC;
 }
 /* Footer */
 .footer
